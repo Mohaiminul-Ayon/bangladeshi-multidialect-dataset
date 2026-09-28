@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multilingual & Multidialectal Dataset</title>
+  <style>
+    :root { --ink:#17212b; --muted:#5e6872; --paper:#f8f7f2; --line:#d8d7ce; --accent:#8b2635; --gold:#bb8a32; --card:#fffefa; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:16px/1.65 Georgia, "Times New Roman", serif; }
+    .wrap { width:min(1100px, calc(100% - 40px)); margin:auto; }
+    header { background:var(--ink); color:#fff; padding:76px 0 64px; border-bottom:6px solid var(--gold); }
+    .eyebrow { margin:0 0 12px; color:#e7c878; font:700 12px/1.2 Arial,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { max-width:850px; margin:0; font-size:clamp(2.25rem,6vw,4.6rem); line-height:1.05; letter-spacing:-.035em; }
+    .lead { max-width:760px; margin:24px 0 0; color:#dce2e5; font-size:1.17rem; }
+    main { padding:54px 0 70px; }
+    section { margin:0 0 56px; }
+    h2 { margin:0 0 18px; font:700 1.7rem/1.2 Arial,sans-serif; letter-spacing:-.02em; }
+    h2::after { content:""; display:block; width:48px; margin-top:12px; border-bottom:3px solid var(--accent); }
+    p { margin:0 0 16px; }
+    .grid { display:grid; grid-template-columns:1.1fr .9fr; gap:28px; }
+    .card { background:var(--card); border:1px solid var(--line); border-radius:5px; padding:27px; box-shadow:0 2px 10px #17212b08; }
+    .card h3 { margin:0 0 11px; font:700 1.1rem/1.25 Arial,sans-serif; }
+    .note { color:var(--muted); font-size:.93rem; }
+    .novelty { position:relative; overflow:hidden; color:#fff; background:var(--accent); border:none; padding:34px; }
+    .novelty::before { content:"Novelty"; position:absolute; top:-22px; right:18px; color:#ffffff16; font:700 7rem/1 Arial,sans-serif; }
+    .novelty h2 { position:relative; margin-bottom:15px; color:#fff; }
+    .novelty h2::after { border-color:#e7c878; }
+    .novelty p, .novelty ul { position:relative; }
+    .novelty ul { margin:12px 0 0; padding-left:21px; }
+    .workflow { display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; counter-reset:step; }
+    .step { position:relative; min-height:177px; background:var(--card); border:1px solid var(--line); border-top:4px solid var(--gold); padding:21px 16px 15px; }
+    .step::before { counter-increment:step; content:counter(step, decimal-leading-zero); display:block; margin-bottom:18px; color:var(--accent); font:700 .78rem/1 Arial,sans-serif; letter-spacing:.08em; }
+    .step strong { display:block; font:700 1rem/1.25 Arial,sans-serif; }
+    .step span { display:block; margin-top:8px; color:var(--muted); font-size:.88rem; line-height:1.45; }
+    .quality { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .quality div { padding:20px; border-left:3px solid var(--accent); background:#fffefa; }
+    .quality strong { display:block; margin-bottom:6px; font-family:Arial,sans-serif; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    .stat { background:var(--card); border:1px solid var(--line); padding:22px 18px; }
+    .stat b { display:block; color:var(--accent); font:700 2.15rem/1 Arial,sans-serif; letter-spacing:-.06em; }
+    .stat span { display:block; margin-top:9px; color:var(--muted); font:700 .78rem/1.35 Arial,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+    .chart { background:var(--card); border:1px solid var(--line); padding:25px; }
+    .bar { display:grid; grid-template-columns:190px 1fr 42px; gap:12px; align-items:center; margin:12px 0; font:14px/1.2 Arial,sans-serif; }
+    .track { height:14px; background:#ebe8df; overflow:hidden; }
+    .fill { height:100%; background:var(--accent); }
+    .bar b { text-align:right; }
+    .sample { overflow-x:auto; border:1px solid var(--line); background:var(--card); }
+    table { width:100%; min-width:760px; border-collapse:collapse; font-size:.91rem; }
+    th,td { padding:13px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); }
+    th { color:#fff; background:var(--ink); font:700 .76rem/1.2 Arial,sans-serif; letter-spacing:.04em; text-transform:uppercase; }
+    tr:last-child td { border-bottom:0; }
+    footer { border-top:1px solid var(--line); padding:26px 0 45px; color:var(--muted); font-size:.9rem; }
+    @media (max-width:800px) { .grid,.quality,.stats { grid-template-columns:repeat(2,1fr); } .workflow { grid-template-columns:repeat(2,1fr); } .bar { grid-template-columns:145px 1fr 36px; } }
+    @media (max-width:480px) { .wrap { width:min(100% - 28px,1100px); } header { padding:54px 0 48px; } .workflow { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Dataset methodology</p>
+      <h1>A Human-Verified Multilingual &amp; Multidialectal Dataset</h1>
+      <p class="lead">A carefully curated language resource grounded in authentic Chittagonian media and extended through translation, dialect adaptation, domain annotation, and repeated human review.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="grid" aria-label="Dataset overview">
+      <div><h2>Purpose</h2><p>This dataset supports research and development for language technologies across the language and dialect labels recorded in the source data. It preserves locally grounded expressions while providing aligned Standard Bangla and English translations.</p><p>The collection is designed to reflect real spoken and broadcast language rather than isolated, artificial examples.</p></div>
+      <aside class="card"><h3>Core sources</h3><p>Authentic Chittagonian songs and news content from Cplus TV were used as the initial data sources.</p><p class="note">Language and dialect names should follow the exact labels used in the final dataset.</p></aside>
+    </section>
+    <section aria-labelledby="at-a-glance-title"><h2 id="at-a-glance-title">Dataset at a glance</h2><div class="stats"><div class="stat"><b>1,062</b><span>Unique aligned records</span></div><div class="stat"><b>6</b><span>Language / dialect versions per record</span></div><div class="stat"><b>56</b><span>Domain labels</span></div><div class="stat"><b>100%</b><span>Rows marked verified</span></div></div><p class="note" style="margin-top:16px">The workbook has 12 populated fields per record, including translations, domain, sentence type, verification status, difficulty, and notes. All 1,062 Pair IDs are unique; no cells are blank.</p></section>
+    <section class="novelty" aria-labelledby="novelty-title"><h2 id="novelty-title">What makes this dataset novel</h2><p>Its defining strength is a layered, community-centred validation process. AI supports refinement and verification, but local speakers and subject specialists make the final linguistic judgements.</p><ul><li>Built from authentic regional media, including songs and news broadcasts.</li><li>Combines multilingual translation with multidialectal adaptation.</li><li>Uses local native speakers and experts to check meaning, wording, and dialect accuracy.</li><li>Includes domain detection and row-by-row, column-by-column verification.</li></ul></section>
+    <section aria-labelledby="workflow-title"><h2 id="workflow-title">Creation workflow</h2><div class="workflow" role="list" aria-label="Ten-stage dataset workflow"><div class="step" role="listitem"><strong>Source collection</strong><span>Gather Chittagonian songs and news content from Cplus TV.</span></div><div class="step" role="listitem"><strong>Transcription</strong><span>Create transcripts from the source videos.</span></div><div class="step" role="listitem"><strong>AI refinement</strong><span>Refine the initial transcript with ChatGPT.</span></div><div class="step" role="listitem"><strong>Local correction</strong><span>Native local speakers manually correct sentences.</span></div><div class="step" role="listitem"><strong>Specialist review</strong><span>Specialists check linguistic quality and correctness.</span></div><div class="step" role="listitem"><strong>Translation</strong><span>Translate approved content into Standard Bangla and English.</span></div><div class="step" role="listitem"><strong>Dialect adaptation</strong><span>Adapt the content into additional local dialects represented in the dataset.</span></div><div class="step" role="listitem"><strong>Expert verification</strong><span>Local speakers and experts manually review dialect translations.</span></div><div class="step" role="listitem"><strong>Domain annotation</strong><span>Write down and identify the domain for each item.</span></div><div class="step" role="listitem"><strong>Final audit</strong><span>Manually verify every row and column, with AI as a supporting check.</span></div></div></section>
+    <section aria-labelledby="quality-title"><h2 id="quality-title">Quality assurance</h2><div class="quality"><div><strong>Human-led accuracy</strong>Local speakers correct linguistic details that automated systems may miss.</div><div><strong>Expert-reviewed meaning</strong>Specialist review adds an independent layer of linguistic assurance.</div><div><strong>Full-record checking</strong>Each row and column receives manual verification, supported by AI checks.</div></div></section>
+    <section aria-labelledby="coverage-title"><h2 id="coverage-title">Domain coverage</h2><div class="chart" role="img" aria-label="Largest domain groups in the dataset: General 382, Food and Cuisine 48, Daily Life and Greetings 44, Politics 34, Chittagonian News Road and City Issues 26, and Classroom or School 25 records."><p class="note">Largest domain groups by record count. The remaining records cover further everyday, cultural, song, news, civic, environmental, and topical domains.</p><div class="bar"><span>General</span><div class="track"><div class="fill" style="width:100%"></div></div><b>382</b></div><div class="bar"><span>Food &amp; Cuisine</span><div class="track"><div class="fill" style="width:12.6%"></div></div><b>48</b></div><div class="bar"><span>Daily Life &amp; Greetings</span><div class="track"><div class="fill" style="width:11.5%"></div></div><b>44</b></div><div class="bar"><span>Politics</span><div class="track"><div class="fill" style="width:8.9%"></div></div><b>34</b></div><div class="bar"><span>News: road &amp; city issues</span><div class="track"><div class="fill" style="width:6.8%"></div></div><b>26</b></div><div class="bar"><span>Classroom / School</span><div class="track"><div class="fill" style="width:6.5%"></div></div><b>25</b></div></div></section>
+    <section aria-labelledby="preview-title"><h2 id="preview-title">Dataset preview</h2><p>A small, representative glimpse of the aligned entries. The page retains the dataset’s original column terminology.</p><div class="sample"><table><thead><tr><th>Pair ID</th><th>Shylheti</th><th>Noakhali</th><th>Barishal</th><th>Chittagonian</th><th>Standard Bengali</th><th>English translation</th><th>Domain</th></tr></thead><tbody><tr><td>PAR-001</td><td>আমরা বাত খাইসি</td><td>আঁরা বাত খাইলাম।</td><td>মোরা ভাত খাইছি</td><td>আঁরা ভাত খাইলাম</td><td>আমরা ভাত খেলাম</td><td>We ate rice</td><td>Food &amp; Cuisine</td></tr><tr><td>PAR-003</td><td>বাজারঅ দাম বেশি</td><td>বাজারো দাম বেশি।</td><td>বাজারে জম্মের দাম</td><td>বাজারত দাম বেশি</td><td>বাজারে দাম বেশি</td><td>Prices are high in the market</td><td>Commerce &amp; Market</td></tr><tr><td>PAR-004</td><td>আমি তমারে বালা ফাই</td><td>আঁই তোরে বালাবাসি।</td><td>মুই তোমারে ভালোবাসি</td><td>আঁই তোঁয়ারে ভালাবাসি</td><td>আমি তোমাকে ভালোবাসি</td><td>I love you</td><td>Emotions &amp; Feelings</td></tr></tbody></table></div></section>
+  </main>
+  <footer><div class="wrap">Multilingual &amp; Multidialectal Dataset &middot; Methodology overview</div></footer>
+</body>
+</html>
